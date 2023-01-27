@@ -1,6 +1,10 @@
   .databaseTable {
     margin: 10vh auto 20px;
   }
+
+  table {
+    border: 1px solid;
+  }
   
   .databaseTable tr:hover {background-color: #ddd;}
   
@@ -16,3 +20,6 @@
     text-align: center;
   }
   
+  input {
+    width: 60px;
+  }
