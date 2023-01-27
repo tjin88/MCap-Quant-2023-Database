@@ -16,7 +16,7 @@ export const DatabaseData = [
         winner: "Tristan",
         payout: "190",
         pAndL: "-10",
-        verify: "NO",
+        verify: "-1",
         className: "example1"
     },
     {

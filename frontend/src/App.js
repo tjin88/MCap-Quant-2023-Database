@@ -5,12 +5,12 @@ import DatabaseTable from './Components/DatabaseTable.js';
 import { DatabaseData } from './Components/DatabaseData.js';
 
 function App() {
-  const [currentData, setCurrentData] = useState([]);
+  const [currentData, setCurrentData] = useState(DatabaseData);
 
   return (
     <div className="App">
       <DatabaseTable databaseData={DatabaseData} currentData={currentData}/>
-      <Buttons setCurrentData={setCurrentData}/>
+      <Buttons currentData={currentData} setCurrentData={setCurrentData}/>
     </div>
   );
 }

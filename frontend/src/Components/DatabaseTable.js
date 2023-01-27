@@ -2,7 +2,7 @@ import React from 'react'
 import './DatabaseTable.css';
 
 const DatabaseTable = ({ databaseData, currentData }) => {
-    
+
     return (
         <table className="databaseTable">
             <tr>
@@ -24,7 +24,7 @@ const DatabaseTable = ({ databaseData, currentData }) => {
                 <th>P&L</th>
                 <th>Verify?</th>
             </tr>
-            {databaseData.map((item, index) => {
+            {currentData.map((item, index) => {
                 return (
                     <tr key={index} className={`${item.className}`}>
                         {/* <td>{item.id}</td> */}
@@ -43,33 +43,29 @@ const DatabaseTable = ({ databaseData, currentData }) => {
                         <td>{item.winner}</td>
                         <td>{item.payout}</td>
                         <td>{item.pAndL}</td>
-                        <td>{item.verify}</td>
+                        <td>{item.verify}/3</td>
                     </tr>
                 )
             })}
-            {currentData.map((item, index) => {
-                return ( 
-                    <tr key={index} className={`${item.className}`}>
-                        {/* <td><input type="text" className="inputId" placeholder="TJin"></input></td> */}
-                        <td><input type="text" className="inputDate" placeholder="Jan 26"></input></td>
-                        <td><input type="text" className="inputTeam1" placeholder="Leafs"></input></td>
-                        <td><input type="text" className="inputTeam2" placeholder="Senators"></input></td>
-                        <td><input type="text" className="inputBetType" placeholder="Moneyline"></input></td>
-                        <td><input type="text" className="inputOdds1" placeholder="1.90"></input></td>
-                        <td><input type="text" className="inputBet1" placeholder="500"></input></td>
-                        <td><input type="text" className="inputParty1" placeholder="Tristan"></input></td>
-                        <td><input type="text" className="inputSportsbook1" placeholder="Bet365"></input></td>
-                        <td><input type="text" className="inputOdds2" placeholder="1.90"></input></td>
-                        <td><input type="text" className="inputBet2" placeholder="500"></input></td>
-                        <td><input type="text" className="inputParty2" placeholder="Tristan"></input></td>
-                        <td><input type="text" className="inputSportsbook2" placeholder="Betway"></input></td>
-                        <td><input type="text" className="inputWinner" placeholder="Tristan"></input></td>
-                        <td><input type="text" className="inputPayout" placeholder="950"></input></td>
-                        <td><input type="text" className="inputPandL" placeholder="-50"></input></td>
-                        <td><input type="text" className="inputVerify" placeholder="NO"></input></td>
-                    </tr>
-                )
-            })}
+            <tr className="inputRow">
+                {/* <td><input type="text" className="inputId" placeholder="TJin"></input></td> */}
+                <td><input type="text" id="inputDate" className="input" placeholder="Jan 26"></input></td>
+                <td><input type="text" id="inputTeam1" className="input" placeholder="Leafs"></input></td>
+                <td><input type="text" id="inputTeam2" className="input" placeholder="Senators"></input></td>
+                <td><input type="text" id="inputBetType" className="input" placeholder="Moneyline"></input></td>
+                <td><input type="text" id="inputOdds1" className="input" placeholder="1.90"></input></td>
+                <td><input type="text" id="inputBet1" className="input" placeholder="500"></input></td>
+                <td><input type="text" id="inputParty1" className="input" placeholder="Tristan"></input></td>
+                <td><input type="text" id="inputSportsbook1" className="input" placeholder="Bet365"></input></td>
+                <td><input type="text" id="inputOdds2" className="input" placeholder="1.90"></input></td>
+                <td><input type="text" id="inputBet2" className="input" placeholder="500"></input></td>
+                <td><input type="text" id="inputParty2" className="input" placeholder="Tristan"></input></td>
+                <td><input type="text" id="inputSportsbook2" className="input" placeholder="Betway"></input></td>
+                <td><input type="text" id="inputWinner" className="input" placeholder="Tristan"></input></td>
+                <td><input type="text" id="inputPayout" className="input" placeholder="950"></input></td>
+                <td><input type="text" id="inputPandL" className="input" placeholder="-50"></input></td>
+                <td><input type="text" id="inputVerify" className="input" placeholder="YES/NO"></input></td>
+            </tr>
         </table>
     )
 }
