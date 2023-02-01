@@ -6,7 +6,7 @@ const DatabaseTable = ({ databaseData, currentData }) => {
     return (
         <table className="databaseTable">
             <tr>
-                {/* <th>ID</th> */}
+                <th>ID</th>
                 <th>Date</th>
                 <th>Team 1</th>
                 <th>Team 2</th>
@@ -27,7 +27,7 @@ const DatabaseTable = ({ databaseData, currentData }) => {
             {currentData.map((item, index) => {
                 return (
                     <tr key={index} className={`${item.className}`}>
-                        {/* <td>{item.id}</td> */}
+                        <td>{item.id}</td>
                         <td>{item.date}</td>
                         <td>{item.team1}</td>
                         <td>{item.team2}</td>
@@ -48,7 +48,7 @@ const DatabaseTable = ({ databaseData, currentData }) => {
                 )
             })}
             <tr className="inputRow">
-                {/* <td><input type="text" className="inputId" placeholder="TJin"></input></td> */}
+                <td><input type="text" id="inputId" className="input" placeholder="1"></input></td>
                 <td><input type="text" id="inputDate" className="input" placeholder="Jan 26"></input></td>
                 <td><input type="text" id="inputTeam1" className="input" placeholder="Leafs"></input></td>
                 <td><input type="text" id="inputTeam2" className="input" placeholder="Senators"></input></td>

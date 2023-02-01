@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './Buttons.css';
 
-const Buttons = ({ currentData, setCurrentData }) => {
-    const [count, setCount] = useState(1);
+const Buttons = ({ currentData, setCurrentData, deletedData, setDeletedData }) => {
+    // const [count, setCount] = useState(1);
     const [insert, setInsert] = useState(false);
     const [deleteButton, setDeleteButton] = useState(false);
     const [modify, setModify] = useState(false);
@@ -10,12 +10,10 @@ const Buttons = ({ currentData, setCurrentData }) => {
     // Currently, as useEffect will be ran once at render, there will be an empty slot. I'll look into this - Tristan 
     useEffect(() => {
         const handleAddData = () => {
-
-
             setCurrentData((prevData) => [
                 ...prevData,
                 {
-                    // id: "",
+                    id: document.getElementById('inputId').value,
                     date: document.getElementById('inputDate').value,
                     team1: document.getElementById('inputTeam1').value,
                     team2: document.getElementById('inputTeam2').value,
@@ -32,13 +30,13 @@ const Buttons = ({ currentData, setCurrentData }) => {
                     payout: document.getElementById('inputPayout').value,
                     pAndL: document.getElementById('inputPandL').value,
                     verify: document.getElementById('inputVerify').value === "YES" ? 1 : -1,
-                    className: `input${count}`,
+                    className: `inputData`,
                 },
             ]);            
         };
 
         const clearInputs = () => {
-            // document.getElementById('inputId').value = "";
+            document.getElementById('inputId').value = "";
             document.getElementById('inputDate').value = "";
             document.getElementById('inputTeam1').value = "";
             document.getElementById('inputTeam2').value = "";
@@ -59,10 +57,59 @@ const Buttons = ({ currentData, setCurrentData }) => {
 
         handleAddData();
         clearInputs();
-        setCount(count+1);
-        console.log(count)
+        // setCount(count+1);
+        // console.log(count)
         console.log(currentData)
     }, [insert]); // Only re-run the effect if insert changes
+
+    // Currently, as useEffect will be ran once at render, there will be an empty slot. I'll look into this - Tristan 
+    useEffect(() => {
+        // const handleDeleteData = ( deleteId ) => {
+        //     setDeletedData((prevData) => [
+        //         ...prevData,
+        //         {
+        //             id: deleteId,
+        //             date: currentData[deleteId-1].date,
+        //             team1: currentData[deleteId-1].team1,
+        //             team2: currentData[deleteId-1].team2,
+        //             betType: currentData[deleteId-1].betType,
+        //             odds1: currentData[deleteId-1].odds1,
+        //             bet1: currentData[deleteId-1].bet1,
+        //             party1: currentData[deleteId-1].party1,
+        //             sportsbook1: currentData[deleteId-1].sportsbook1,
+        //             odds2: currentData[deleteId-1].odds2,
+        //             bet2: currentData[deleteId-1].bet2,
+        //             party2: currentData[deleteId-1].party2,
+        //             sportsbook2: currentData[deleteId-1].sportsbook2,
+        //             winner: currentData[deleteId-1].winner,
+        //             payout: currentData[deleteId-1].payout,
+        //             pAndL: currentData[deleteId-1].pAndL,
+        //             verify: currentData[deleteId-1].verify,
+        //             className: `deletedData`,
+        //         },
+        //     ]);            
+        // };
+
+        const removeData = ( deleteId ) => {
+            setDeletedData((prevDeletedData) => [
+                ...prevDeletedData,
+                currentData.filter((item) => item.id === deleteId)
+            ]);
+
+            setCurrentData((prevCurrentData) => 
+                prevCurrentData.filter((item) => item.id !== deleteId)
+            );
+          };
+
+        // const deleteId = document.getElementById('deleteInput').value === "" ? 1 : document.getElementById('deleteInput').value;
+        const deleteId = document.getElementById('deleteInput').value;
+
+        // handleDeleteData(deleteId);
+        removeData(deleteId);
+        // setCount(count-1);
+        // console.log(count)
+        console.log(deletedData)
+    }, [deleteButton]); // Only re-run the effect if delete changes
 
     return (
     <>
@@ -74,7 +121,10 @@ const Buttons = ({ currentData, setCurrentData }) => {
         </section> */}
         <section className="buttons_section">
             <button className="button-5" onClick={ () => setInsert(!insert) }>Insert</button>
-            <button className="button-5" onClick={ () => setDeleteButton(!deleteButton) }>Delete</button>
+            <div>
+                <input type="text" id="deleteInput" className="deleteInput" placeholder="ID #"></input>
+                <button className="button-5" onClick={ () => setDeleteButton(!deleteButton) }>Delete</button>
+            </div>
             <button className="button-5" onClick={ () => setModify(!modify) }>Modify</button>
             {/* <button className="button-5">______</button>
             <button className="button-5">______</button> */}

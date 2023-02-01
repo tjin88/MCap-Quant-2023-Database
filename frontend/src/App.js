@@ -6,11 +6,17 @@ import { DatabaseData } from './Components/DatabaseData.js';
 
 function App() {
   const [currentData, setCurrentData] = useState(DatabaseData);
+  const [deletedData, setDeletedData] = useState([]);
 
   return (
     <div className="App">
       <DatabaseTable databaseData={DatabaseData} currentData={currentData}/>
-      <Buttons currentData={currentData} setCurrentData={setCurrentData}/>
+      <Buttons 
+        currentData={currentData} 
+        setCurrentData={setCurrentData}
+        deletedData={deletedData} 
+        setDeletedData={setDeletedData}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 export const DatabaseData = [
     {
-        id: "EXAMPLE",
+        id: "1",
         date: "Jan 26",
         team1: "Leafs",
         team2: "Senators",
@@ -20,7 +20,7 @@ export const DatabaseData = [
         className: "example1"
     },
     {
-        id: "Input1",
+        id: "2",
         date: "Input1",
         team1: "Input1",
         team2: "Input1",
@@ -40,7 +40,7 @@ export const DatabaseData = [
         className: "example2"
     },
     {
-        id: "Input1",
+        id: "3",
         date: "Input1",
         team1: "Input1",
         team2: "Input1",
@@ -60,7 +60,7 @@ export const DatabaseData = [
         className: "example3"
     },
     {
-        id: "Input1",
+        id: "4",
         date: "Input1",
         team1: "Input1",
         team2: "Input1",
